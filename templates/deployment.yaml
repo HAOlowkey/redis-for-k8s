@@ -6,7 +6,6 @@ metadata:
   labels: {{- include "common.labels.standard" . | nindent 4 }}
 spec:
   replicas: 1
-  podManagementPolicy: OrderedReady
   selector:
     matchLabels: {{- include "common.labels.matchLabels" . | nindent 8 }}
   template:
