@@ -4,8 +4,8 @@
 To install the `my-release`:
 
 ```
-helm repo add myredisrepo https://haolowkey.github.io/helm-redis
-helm install my-release myredisrepo/redis
+helm repo add redisrepo https://haolowkey.github.io/helm-redis
+helm install my-release redisrepo/redis
 ```
 
 To uninstall/delete the `my-release`:
