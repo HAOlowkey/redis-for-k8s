@@ -9,8 +9,6 @@ spec:
   podManagementPolicy: OrderedReady
   selector:
     matchLabels: {{- include "common.labels.matchLabels" . | nindent 8 }}
-  updateStrategy:
-    type: RollingUpdate
   template:
     metadata:
       labels: {{ include "common.labels.standard" . | nindent 8 }}
