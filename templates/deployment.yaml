@@ -68,7 +68,7 @@ spec:
               name: {{ include "redis.name" . }}
               key: PASS
         - name: PORT
-          value: {{ .Values.service.ports.redis }}
+          value: "{{ .Values.service.ports.redis }}"
         volumeMounts:
         - mountPath: /etc/redis.conf
           name: config
