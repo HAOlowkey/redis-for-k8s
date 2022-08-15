@@ -7,7 +7,7 @@ service:
   ports:
     redis: 6379
   nodePorts:
-    redis: 36379
+    redis: 30379
 
 image:
   registry: docker.io
