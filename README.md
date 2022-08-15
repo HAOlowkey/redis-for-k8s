@@ -4,8 +4,8 @@
 To install the `my-release`:
 
 ```
-helm repo add myrepo https://haolowkey.github.io/helm-chart
-helm install my-releasemyrepo/redis
+helm repo add myredisrepo https://haolowkey.github.io/helm-redis
+helm install my-release myredisrepo/redis
 ```
 
 To uninstall/delete the `my-release`:
@@ -16,15 +16,19 @@ $ helm uninstall my-release
 
 ## Parameters
 
-### Global parameters
+### Common parameters
 
 | Name                      | Description                                     | Value |
 | ------------------------- | ----------------------------------------------- | ----- |
-| `architecture`            | Redis architecture support value "standalone"   | `"standalone"`  |
+| `architecture`            | Redis architecture (`standalone`)   | `"standalone"`  |
 
+### Redis common parameters
 
-### Common parameters
-
-| Name                     | Description                                                                 | Value           |
-| ------------------------ | --------------------------------------------------------------------------- | --------------- |
-| `service.type`           | service type                                                                | `"clusterIP"`   |
+| Name                       | Description                                                                                                                                                                         | Value                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `image.registry`           | Redis image registry                                                                                                                                                                | `docker.io`           |
+| `image.repository`         | Redis image repository                                                                                                                                                              | `haolowkey/redis`       |
+| `image.tag`                | Redis image tag (immutable tags are recommended)                                                                                                                                    | `5.0.14` |
+| `image.pullPolicy`         | MySQL image pull policy                                                                                                                                                             | `IfNotPresent`        |
+| `image.pullSecrets`        | Specify docker-registry secret names as an array                                                                                                                                    | `[]`                  |
+| `auth.password`     | Redis Password user                                                                                                                                                              | `""`          |

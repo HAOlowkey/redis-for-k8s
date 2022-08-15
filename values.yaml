@@ -1,7 +1,5 @@
-global: {}
-  ## @param architecture Redis architecture (`standalone` or `replication` or `redis-cluster`)
-  ##
-
+## @param architecture Redis architecture (`standalone`)
+##
 architecture: "standalone"
 
 service:
