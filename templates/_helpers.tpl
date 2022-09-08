@@ -1,15 +1,10 @@
+{{/* vim: set filetype=mustache: */}}
+
 {{/*
 Expand the name of the release.
 */}}
-{{- define "redis.name" -}}
-{{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create chart name and version as used by the chart label.
-*/}}
-{{- define "redis.chart" -}}
-{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- define "redis.fullname" -}}
+{{- include "common.names.fullname" . -}}
 {{- end }}
 
 {{/*
@@ -23,10 +18,9 @@ Return the proper redis image name
 Return the proper Docker Image Registry Secret Names
 */}}
 {{- define "redis.imagePullSecrets" -}}
-  {{- if not (empty .Values.image.pullSecrets) }}
-imagePullSecrets:
-    {{ range .Values.image.pullSecrets -}}
-- name: {{ . }}
-    {{- end }}
-  {{- end }}
+{{- include "common.images.pullSecrets" (dict "images" (list .Values.image) "global" .Values.global) }}
+{{- end -}}
+
+{{- define "redis.auth.password" -}}
+{{ default "Root@123!" .Values.auth.password | b64enc | quote }}
 {{- end -}}

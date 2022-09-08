@@ -6,8 +6,10 @@ service:
   type: ClusterIP
   ports:
     redis: 6379
+  portsName:
+    redis: "redis"
   nodePorts:
-    redis: 30379
+    redis: ""
 
 image:
   registry: docker.io
@@ -29,7 +31,7 @@ image:
 ## MySQL Authentication parameters
 ##
 auth:
-  password: Root@123!
+  password: ""
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
